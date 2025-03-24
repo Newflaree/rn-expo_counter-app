@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {
   StyleSheet,
-  Pressable,
   Text,
   TouchableOpacity,
   View
 } from 'react-native';
+// Components
+import FAB from './components/FAB';
+
 
 export default function App() {
   const [ count, setCount ] = useState(10);
@@ -15,6 +17,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.textHuge}>{ count }</Text>
 
+      {/*
       <Pressable
         style={ styles.floatingButton }
         onPress={ () => setCount( count + 1 ) }
@@ -22,6 +25,13 @@ export default function App() {
       >
         <Text style={{ color: 'white', fontSize: 20 }}>+ 10</Text>
       </Pressable>
+      */}
+
+      <FAB
+        label='+ 1'
+        onPress={ () => setCount( count + 1 ) }
+        onLongPress={ () => setCount(0) }
+      />
 
       <TouchableOpacity>
         <Text>+ 10</Text>
@@ -43,20 +53,4 @@ const styles = StyleSheet.create({
     fontSize: 120,
     fontWeight: '100'
   },
-  floatingButton: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    backgroundColor: '#65558F',
-    padding: 20,
-    borderRadius: 15,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 4
-    },
-    shadowRadius: 3,
-    shadowOpacity: 0.3,
-    elevation: 3
-  }
 });

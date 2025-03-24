@@ -33,6 +33,12 @@ export default function App() {
         onLongPress={ () => setCount(0) }
       />
 
+      <FAB
+        label='Reset'
+        onPress={ () => setCount( 0 ) }
+        position='left'
+      />
+
       <TouchableOpacity>
         <Text>+ 10</Text>
       </TouchableOpacity>
